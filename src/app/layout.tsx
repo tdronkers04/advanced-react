@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
-import { ThemeToggle } from '@/components/ThemeToggle'
 import './globals.css'
+import NavBar from '@/components/NavBar'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Advanced React Examples',
-  description: "Examples from the book 'Advanced React' by Nadia Makarevich",
+  title: 'Advanced React',
+  description:
+    "Notes and Examples from the book 'Advanced React' by Nadia Makarevich",
 }
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
@@ -28,9 +29,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     >
       <body className='flex min-h-full flex-col'>
         <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
-          <div className='absolute top-4 right-5'>
-            <ThemeToggle />
-          </div>
+          <NavBar />
           {children}
         </ThemeProvider>
       </body>
