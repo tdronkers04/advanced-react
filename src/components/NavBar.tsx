@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { HomeIcon } from '@heroicons/react/24/solid'
+import Tooltip from '@/components/Tooltip'
 
 // Dynamically load ThemeToggle to avoid SSR hydration mismatches
 const ThemeToggleDynamic = dynamic(() => import('@/components/ThemeToggle'), {
@@ -14,7 +15,9 @@ export default function NavBar() {
     <div className='absolute top-4 right-5'>
       <div className='flex items-center gap-3'>
         <Link href='/'>
-          <HomeIcon className='size-4' />
+          <Tooltip content='Home'>
+            <HomeIcon className='size-4' />
+          </Tooltip>
         </Link>
         <ThemeToggleDynamic />
       </div>
