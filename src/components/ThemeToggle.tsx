@@ -6,6 +6,7 @@ import {
   SunIcon,
 } from '@heroicons/react/24/solid'
 import { useTheme } from 'next-themes'
+import Tooltip from './Tooltip'
 
 const OPTIONS = [
   { value: 'light', label: 'Light' },
@@ -42,7 +43,9 @@ export default function ThemeToggle() {
                 : 'text-foreground/60 hover:text-foreground'
             }`}
           >
-            <Icon className='size-4' />
+            <Tooltip content={label}>
+              <Icon className='size-4' />
+            </Tooltip>
           </button>
         )
       })}
